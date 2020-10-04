@@ -1,13 +1,12 @@
 ## Lista empírica 1
 
-# importação dos módulos necessários
 import numpy as np
 
 
 class Exercicio_1:
     '''
     Gera 100 amostras, c/ 100 realizações N(0,1) cada, depois calcula quantos
-    ICs estimados contém o parâmetro verdadeiro
+    intervalos de confiança estimados contém o parâmetro verdadeiro.
     '''
     
     def __init__(self, sample_size, samples_nbr, mean, std, z):
@@ -19,20 +18,20 @@ class Exercicio_1:
         self.X = np.random.normal(mean, std, size=(samples_nbr, sample_size))
         self.count = 0
 
-    def countTrueICs(self):
+    def countTrueCIs(self):
 
         for x in self.X:
             avg = np.average(x)
-            IC = [avg - self.z * self.std / np.sqrt(self.sample_size),
+            CI = [avg - self.z * self.std / np.sqrt(self.sample_size),
                   avg + self.z * self.std / np.sqrt(self.sample_size)]
-            if self.mean > IC[0] and self.mean < IC[1]:
+            if self.mean > CI[0] and self.mean < CI[1]:
                 self.count += 1
         return
 
     def printResults(self):
         trueProportion = self.count / samples_nbr
-        print("This draw yielded ", trueProportion,
-              "% ICs enclosing true average")
+        print("This draw yielded ", trueProportion * 100,
+              "% CIs enclosing true average")
         return
             
 
@@ -43,5 +42,5 @@ if __name__ == '__main__':
     std = 1
     z = 1.96
     instance = Exercicio_1(sample_size, samples_nbr, mean, std, z)
-    instance.countTrueICs()
+    instance.countTrueCIs()
     instance.printResults()
