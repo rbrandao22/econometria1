@@ -15,9 +15,11 @@ Passo-a-passo inicial:
    gcloud compute ssh <nome-da-vm>
 - Clone o repositório econometria1:
    git clone https://github.com/rbrandao22/econometria1.git
-- Crie a imagem de container 'my-python-app' e rode o primeiro "hello world":
-   cd econometria1
+- Crie a imagem de container 'my-python-app':
+   cd econometria1/ops
    sh build.sh
-   sh run.sh
+- Dispare um container com Python e pacotes (no requirements) instalado:
+   cd ~/econometria1
+   sh run_python3.sh
    
    

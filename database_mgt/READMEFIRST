@@ -1,16 +1,19 @@
+## Neste README uso os dados do paper AJR_2001 apenas para exemplificar,
+## mas qualquer csv pode ser utilizado
+
 ## Create csv files from dta format (Stackoverflow 'convert a dta file to csv...')
 in python3 shell:
 >>>import pandas as pd
 >>>data = pd.io.stata.read_stata('makefile4.dta')
 >>>data.to_csv('makefile4.csv')
 
-## Create database
+## Create database:
 run postgres_launch.sh first (this generates postgres pgdata necessary files)
 run psql.sh and issue following command:
   create database monitoria;
 
-## Copy csv to database dir
-then copy original csv file to /mnt/postgresdb/pgdata/csv:
+## Copy csv to database dir:
+copy original csv file to /mnt/postgresdb/pgdata/csv:
   sudo su - root
   cd /mnt/postgresdb/pgdata
   mkdir csv
@@ -24,4 +27,4 @@ then copy original csv file to /mnt/postgresdb/pgdata/csv:
   inside vim, also needed is argdo %s/,/./ge | update
 
 ## run python3 container and issue:
-  python3 database/fill_db.py
+  python3 lista1_19/fill_db.py
