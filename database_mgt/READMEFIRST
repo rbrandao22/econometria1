@@ -4,7 +4,8 @@
 ## Create csv files from dta format (Stackoverflow 'convert a dta file to csv...')
 in python3 shell:
 >>>import pandas as pd
->>>data = pd.io.stata.read_stata('makefile4.dta')
+>>>data = pd.io.stata.read_stata('/home/<your_username>/econometria1/data_AJR01/
+	makefile4.dta')
 >>>data.to_csv('makefile4.csv')
 
 ## Create database:
@@ -17,7 +18,7 @@ copy original csv file to /mnt/postgresdb/pgdata/csv:
   sudo su - root
   cd /mnt/postgresdb/pgdata
   mkdir csv
-  cp /home/<your_user>/econometria1/database/makefile4.csv csv/
+  cp /home/<your_user>/econometria1/data_AJR01/makefile4.csv csv/
   exit (to quit admin privileges)
 
 ## Notas adicionais:
@@ -27,4 +28,4 @@ copy original csv file to /mnt/postgresdb/pgdata/csv:
   inside vim, also needed is argdo %s/,/./ge | update
 
 ## run python3 container and issue:
-  python3 lista1_19/fill_db.py
+  python3 solucoesParciaisLista1_2019/fill_db.py
